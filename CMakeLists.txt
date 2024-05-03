@@ -10,9 +10,9 @@ add_executable(coinflip coinflip/main.cpp)
 add_executable(contest_proposal contest_proposal/main.cpp)
 # target_link_libraries(coinflip m)
 
-add_custom_target(exe ALL
-    DEPENDS contest_proposal
-    COMMAND ./contest_proposal
-    COMMENT "VAMOOOOOOOOOOOOS PAPA COMPILO"
-    COMMENT "EJECUTANAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANDO"
-)
+# add_custom_target(exe ALL
+#     DEPENDS contest_proposal
+#     COMMAND ./contest_proposal
+#     COMMENT "VAMOOOOOOOOOOOOS PAPA COMPILO"
+#     COMMENT "EJECUTANAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANDO"
+# )

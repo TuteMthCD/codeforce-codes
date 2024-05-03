@@ -33,12 +33,12 @@ int main(int argc, char* argv[]) {
 
             if(ite != Coins.end()) {
                 Coins.erase(ite);
-
                 if(Coins.size() > 1) {
                     for(int i = 1; i <= 2; i++)
                         *(ite + i) = ((std::rand() % 1) == 1);
-                } else
+                } else {
                     break;
+                }
 
             } else
                 break;

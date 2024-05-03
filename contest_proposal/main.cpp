@@ -20,36 +20,48 @@ int getIntInput() {
 }
 
 int main(int argc, char* argv[]) {
-    std::vector<int> An, Bn;
-    int AmountProblems, CountProblems;
+    int AmountTest;
 
-    std::scanf("%d", &AmountProblems);
+    std::scanf("%d", &AmountTest);
 
-    for(int i = 0; i < AmountProblems; i++)
-        An.push_back(getIntInput());
+    for(int test = 0; test < AmountTest; test++) {
+        std::vector<int> An, Bn;
+        int AmountProblems, CountProblems;
 
-    for(int i = 0; i < AmountProblems; i++)
-        Bn.push_back(getIntInput());
 
-    std::sort(An.begin(), An.end());
-    std::sort(Bn.begin(), Bn.end());
+        std::scanf("%d", &AmountProblems);
 
-    auto IteA = An.begin();
-    auto IteB = Bn.begin();
+        for(int i = 0; i < AmountProblems; i++)
+            An.push_back(getIntInput());
 
-    while(IteA != An.end() - 1 && IteB != Bn.end() - 1) {
-        if(*IteA <= *IteB) {
-            IteA++;
-            IteB++;
-        } else {
-            An.erase(An.end() - 1);
-            An.insert(IteA, *IteB);
-            CountProblems++;
-            IteA = An.begin();
-            IteB = Bn.begin();
+        for(int i = 0; i < AmountProblems; i++)
+            Bn.push_back(getIntInput());
+
+        std::sort(An.begin(), An.end());
+        std::sort(Bn.begin(), Bn.end());
+
+        auto IteA = An.begin();
+        auto IteB = Bn.begin();
+
+        while(IteA != An.end() && IteB != Bn.end()) {
+            if(*IteA <= *IteB) {
+                IteA++;
+                IteB++;
+            } else {
+                An.erase(An.end() - 1);
+                An.insert(IteA, *IteB);
+                CountProblems++;
+                IteA = An.begin();
+                IteB = Bn.begin();
+            }
         }
+        printf("%d\n", CountProblems);
+
+        CountProblems = 0;
+        AmountProblems = 0;
+        An.clear();
+        Bn.clear();
     }
-    printf("%d", CountProblems);
 
 
     return 0;
