@@ -5,6 +5,7 @@
 
 
 #include <cmath>
+#include <cstdint>
 #include <cstdio>
 #include <cstdlib>
 
@@ -19,18 +20,20 @@ int main(int argc, char* argv[]) {
 
         int PointsCounter = 0;
 
-        for(int x = 1; x <= Radius; x++) {
-            for(int y = Radius - x; y <= Radius; y++) {
-                if(x + y >= Radius) {
-                    double Distance = sqrt(x * x + y * y);
+        for(int64_t x = 1; x <= Radius; x++) {
 
-                    if(Distance >= Radius && Distance < Radius + 1) {
-                        // printf("%d, %d, %f\n", x, y, Distance);
+            int64_t ymin = sqrt(pow(Radius, 2) - x * x);
+            int64_t ymax = sqrt(pow(Radius + 1, 2) - x * x);
+
+            for(int64_t y = ymin; y <= ymax; y++)
+                if(x + y >= Radius) {
+                    double Distance = sqrt((int64_t)x * x + (int64_t)y * y);
+
+                    if(Distance >= Radius && Distance < Radius + 1)
                         PointsCounter++;
-                    }
                 }
-            }
         }
+
         PointsCounter *= 4;
         printf("%d\n", PointsCounter);
     }
