@@ -6,11 +6,7 @@
 
 #include <cmath>
 #include <cstdio>
-
-double EuclideanDistance(int x, int y) {
-    return sqrt(x * x + y * y);
-}
-
+#include <cstdlib>
 
 int main(int argc, char* argv[]) {
     int TestCases = 0;
@@ -23,15 +19,19 @@ int main(int argc, char* argv[]) {
 
         int PointsCounter = 0;
 
-        for(int x = -Radius; x <= Radius; x++) {
-            for(int y = -Radius; y <= Radius; y++) {
-                double Distance = EuclideanDistance(x, y);
+        for(int x = 1; x <= Radius; x++) {
+            for(int y = Radius - x; y <= Radius; y++) {
+                if(x + y >= Radius) {
+                    double Distance = sqrt(x * x + y * y);
 
-                if(Distance >= Radius && Distance < Radius + 1)
-                    PointsCounter++;
+                    if(Distance >= Radius && Distance < Radius + 1) {
+                        // printf("%d, %d, %f\n", x, y, Distance);
+                        PointsCounter++;
+                    }
+                }
             }
         }
-
+        PointsCounter *= 4;
         printf("%d\n", PointsCounter);
     }
 
