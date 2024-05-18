@@ -20,7 +20,7 @@ int main(int argc, char* argv[]) {
 
         int PointsCounter = 0;
 
-        for(int64_t x = 1; x <= Radius; x++) {
+        for(int x = 1; x <= Radius; x++) {
 
             int64_t ymin = sqrt(pow(Radius, 2) - x * x);
             int64_t ymax = sqrt(pow(Radius + 1, 2) - x * x);
