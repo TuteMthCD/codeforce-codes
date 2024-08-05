@@ -16,9 +16,12 @@ add_executable(circle_perimeter circle_perimeter/main.cpp)
 add_executable(clock_string clock_string/main.cpp)
 # target_link_libraries(coinflip m)
 
+add_executable(binary_cut binary_cut/main.cpp)
+# target_link_libraries(coinflip m)
+
 add_custom_target(exe ALL
-    DEPENDS clock_string
-    COMMAND ./clock_string
+    DEPENDS binary_cut
+    COMMAND ./binary_cut
     COMMENT "VAMOOOOOOOOOOOOS PAPA COMPILO"
     COMMENT "EJECUTANAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANDO"
 )
