@@ -19,9 +19,11 @@ add_executable(clock_string clock_string/main.cpp)
 add_executable(binary_cut binary_cut/main.cpp)
 # target_link_libraries(coinflip m)
 
+add_executable(diagonals diagonals/main.cpp)
+
 add_custom_target(exe ALL
-    DEPENDS binary_cut
-    COMMAND ./binary_cut
+    DEPENDS diagonals
+    COMMAND ./diagonals
     COMMENT "VAMOOOOOOOOOOOOS PAPA COMPILO"
     COMMENT "EJECUTANAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANDO"
 )
